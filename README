@@ -1,0 +1,14 @@
+Here's my little project.
+And here's my little idea;
+
+Make a small game that can be run without user-interaction;
+The AI NPC can navigate a large overworld to find 'dungeons'
+Once a dungeon is found, the player can take control and explore / fight in said dungeon.
+
+Possible features
+-> 3D combat scene akin to Dragon Quest
+-> Social Networking
+-> User options for name, time scale, world size
+
+Stuff
+OpenGL is being used to keep the project portable (IF it goes well)
