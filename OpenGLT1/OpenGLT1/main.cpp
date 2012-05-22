@@ -14,6 +14,8 @@ bool keys[256];			// Keyboard Information
 bool active=true;		// Window Active Flag
 bool fullscreen=false;	// Fullscreen Flag
 
+GLfloat quad_rotation;
+
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 GLvoid ResizeGLScene(GLsizei width, GLsizei height)
@@ -50,6 +52,50 @@ int DrawGLScene(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the screen AND depth, it's a flag (fancy eh?)
 	glLoadIdentity(); // Reset modelview matrix
+
+	glTranslatef(0.0f, 0.0f, -6.0f);
+	glRotatef(quad_rotation, 1.0f, 0.5f, 0.0f); // Rotate the cube on the X and Y axis
+
+	glBegin(GL_QUADS);
+			// TOP
+		glColor3f(0.0f, 1.0f, 0.0f); // Green
+		glVertex3f( 1.0f, 1.0f,-1.0f); // Top Right
+		glVertex3f(-1.0f, 1.0f,-1.0f); // Top Left
+		glVertex3f(-1.0f, 1.0f, 1.0f); // Bottom Left
+		glVertex3f( 1.0f, 1.0f, 1.0f); // Bottom Right
+			// Bottom
+		glColor3f(1.0f, 0.5f, 0.0f); // Orange
+		glVertex3f( 1.0f,-1.0f, 1.0f);
+		glVertex3f(-1.0f,-1.0f, 1.0f);
+		glVertex3f(-1.0f,-1.0f,-1.0f);
+		glVertex3f( 1.0f,-1.0f,-1.0f);
+			// Front
+		glColor3f(1.0f, 0.0f, 0.0f); // Red
+		glVertex3f( 1.0f, 1.0f, 1.0f);
+		glVertex3f(-1.0f, 1.0f, 1.0f);
+		glVertex3f(-1.0f,-1.0f, 1.0f);
+		glVertex3f( 1.0f,-1.0f, 1.0f);
+			// Back
+		glColor3f(1.0f, 1.0f, 0.0f); // Yellow
+		glVertex3f( 1.0f,-1.0f,-1.0f);
+		glVertex3f(-1.0f,-1.0f,-1.0f);
+		glVertex3f(-1.0f, 1.0f,-1.0f);
+		glVertex3f( 1.0f, 1.0f,-1.0f);
+			// Left
+		glColor3f(0.0f, 0.0f, 1.0f); // Blue
+		glVertex3f(-1.0f, 1.0f, 1.0f);
+		glVertex3f(-1.0f, 1.0f,-1.0f);
+		glVertex3f(-1.0f,-1.0f,-1.0f);
+		glVertex3f(-1.0f,-1.0f, 1.0f);
+			// Right
+		glColor3f(1.0f, 0.0f, 1.0f); // Violet
+		glVertex3f( 1.0f, 1.0f,-1.0f);
+		glVertex3f( 1.0f, 1.0f, 1.0f);
+		glVertex3f( 1.0f,-1.0f, 1.0f);
+		glVertex3f( 1.0f,-1.0f,-1.0f);
+	glEnd();
+
+	quad_rotation+= 0.5f;
 	return true;
 }
 
