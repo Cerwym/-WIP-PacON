@@ -14,6 +14,6 @@ public:
 	bool Shutdown();
 
 	void SetProjection(int width, int height);
-	void Prepare(float dt);
+	void Update(float dt);
 	void Render();
 };

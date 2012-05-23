@@ -58,7 +58,7 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 			// Makes more sense to init OpenGL when the Window creation is called through the API
 			hDC = GetDC(hWnd);
 			SetupPixelFormat(hDC);
-			
+
 			hRC = wglCreateContext(hDC);
 			wglMakeCurrent(hDC, hRC);
 			break;
@@ -102,8 +102,8 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case WM_KEYDOWN:
 			int fwKeys;
 			LPARAM keyData;
-			fwKeys = (int)wParam;    // virtual-key code 
-			keyData = lParam;          // key data 
+			fwKeys = (int)wParam;    // virtual-key code
+			keyData = lParam;          // key data
 
 			switch(fwKeys)
 			{
@@ -152,7 +152,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 	wc.lpszMenuName    = NULL;                             // no menu
 	wc.lpszClassName   = "POpenGLApp";
 	wc.hIconSm         = LoadIcon(NULL, IDI_WINLOGO);      // windows logo small icon
-
 
 	if (!RegisterClassEx(&wc))
 	{
@@ -204,8 +203,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 
 	AdjustWindowRectEx(&windowRect, dwStyle, false, dwExStyle); // And adjust window to the REQUESTED size
 	if (!(hWnd=CreateWindowEx(  dwExStyle,
-		"POpenGLApp",               // Class Name
-		"Pete's Summer Game",									// Window Title
+		"POpenGLApp",							// Class Name
+		"Pete's Summer Game",					// Window Title
 		WS_CLIPSIBLINGS |						// Required Window Style
 		WS_CLIPCHILDREN |						// Required Window Style
 		dwStyle,								// Selected Window Style
@@ -230,8 +229,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 
 	while (active)
 	{
-		glRender->Prepare(0.0f);
 		glRender->Render();
+		glRender->Update(0.0f);
 		SwapBuffers(hDC);
 
 		while (PeekMessage (&msg, NULL, 0, 0, PM_NOREMOVE))
