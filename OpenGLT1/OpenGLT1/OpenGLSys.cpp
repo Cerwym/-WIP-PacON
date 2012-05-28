@@ -19,6 +19,8 @@ bool OpenGLSys::Init()
 	glDepthFunc(GL_LEQUAL); // Lessens Z-Depth Fighting
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
+	m_rotation = 0.0f;
+
 	return true;
 }
 

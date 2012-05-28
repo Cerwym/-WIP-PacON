@@ -229,8 +229,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 
 	while (active)
 	{
-		glRender->Render();
 		glRender->Update(0.0f);
+		glRender->Render();
 		SwapBuffers(hDC);
 
 		while (PeekMessage (&msg, NULL, 0, 0, PM_NOREMOVE))
