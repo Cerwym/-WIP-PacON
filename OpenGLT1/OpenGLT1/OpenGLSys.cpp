@@ -52,7 +52,7 @@ void OpenGLSys::SetProjection(int width, int height)
 
 void OpenGLSys::Update(float dt)
 {
-	m_rotation += 0.5f;
+	m_rotation += dt * 50;
 }
 
 void OpenGLSys::Render()

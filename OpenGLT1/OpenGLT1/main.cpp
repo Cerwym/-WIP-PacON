@@ -5,6 +5,7 @@
 #include <gl/glu.h>
 
 #include "OpenGLSys.h"
+#include "timer.h"
 
 HDC hDC;				// Private GDI Device Context
 bool active=true;		// Window Active Flag
@@ -16,6 +17,7 @@ long wHeight = 600;
 long wBits = 32;
 
 OpenGLSys *glRender = NULL;
+CHiResTimer *g_hiResTimer = NULL;
 
 void SetupPixelFormat(HDC hDC)
 {
@@ -133,6 +135,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 	RECT windowRect;
 
 	glRender = new OpenGLSys;
+	g_hiResTimer = new CHiResTimer;
 
 	windowRect.left=(long)0;                        // Set Left Value To 0
 	windowRect.right=(long)800; // Set Right Value To Requested Width
@@ -227,9 +230,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 
 	glRender->Init();
 
+	// Init the timer that will 'limit' the framerate and help the program deal with updates based on time rather than frames elapsed
+	g_hiResTimer->Init();
+
 	while (active)
 	{
-		glRender->Update(0.0f);
+		glRender->Update(g_hiResTimer->GetElapsedSeconds(1));
 		glRender->Render();
 		SwapBuffers(hDC);
 
@@ -246,6 +252,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 	}
 
 	delete glRender;
+	delete g_hiResTimer;
 	if (fullscreen)
 	{
 		ChangeDisplaySettings(NULL, 0);
