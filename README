@@ -5,6 +5,9 @@ Make a small game that can be run without user-interaction;
 The AI NPC can navigate a large overworld to find 'dungeons'
 Once a dungeon is found, the player can take control and explore / fight in said dungeon.
 
+Must have features
+-> Application must be able to receive 'content' updates from an external application, possibly over wifi or suitable, portable method.
+
 Possible features
 -> 3D combat scene akin to Dragon Quest
 -> Social Networking
