@@ -7,6 +7,7 @@
 #include "OpenGLSys.h"
 #include "timer.h"
 
+
 HDC hDC;				// Private GDI Device Context
 bool active=true;		// Window Active Flag
 bool fullscreen=false;	// Fullscreen Flag

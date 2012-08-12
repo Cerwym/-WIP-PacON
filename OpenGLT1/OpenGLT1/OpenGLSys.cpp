@@ -4,8 +4,6 @@
 #include <gl/glu.h>
 #include "OpenGLSys.h"
 
-// Disable implicit float->double casting warning
-
 OpenGLSys::OpenGLSys(){}
 
 OpenGLSys::~OpenGLSys(){}
