@@ -20,6 +20,16 @@ long wBits = 32;
 OpenGLSys *glRender = NULL;
 CHiResTimer *g_hiResTimer = NULL;
 
+void ShutDown()
+{
+	delete glRender;
+	delete g_hiResTimer;
+	if (fullscreen)
+	{
+		ChangeDisplaySettings(NULL, 0);
+		ShowCursor(true);
+	}
+}
 void SetupPixelFormat(HDC hDC)
 {
 	int pixelFormat;
@@ -208,7 +218,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 	AdjustWindowRectEx(&windowRect, dwStyle, false, dwExStyle); // And adjust window to the REQUESTED size
 	if (!(hWnd=CreateWindowEx(  dwExStyle,
 		"POpenGLApp",							// Class Name
-		"Pete's Summer Game",					// Window Title
+		"Pete's Little App",					// Window Title
 		WS_CLIPSIBLINGS |						// Required Window Style
 		WS_CLIPCHILDREN |						// Required Window Style
 		dwStyle,								// Selected Window Style
@@ -252,12 +262,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreviousInstance, LPSTR lpCmd
 		}
 	}
 
-	delete glRender;
-	delete g_hiResTimer;
-	if (fullscreen)
-	{
-		ChangeDisplaySettings(NULL, 0);
-		ShowCursor(true);
-	}
-	return (msg.wParam);
+	ShutDown();
+	return 0; // Won't be reached
 }

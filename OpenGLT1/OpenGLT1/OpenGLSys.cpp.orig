@@ -1,7 +1,6 @@
 #include <iostream>
-#include <Windows.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
+#include "SDL.h"
+#include "SDL_opengl.h"
 #include "OpenGLSys.h"
 
 OpenGLSys::OpenGLSys(){}
@@ -48,6 +47,7 @@ bool OpenGLSys::SetProjection(int width, int height)
 	m_windowHeight = width;
 	m_windowWidth = width;
 	return true;
+<<<<<<< HEAD
 }
 
 void OpenGLSys::Enable2D()
@@ -63,6 +63,8 @@ void OpenGLSys::Enable2D()
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 	glLoadIdentity();
+=======
+>>>>>>> origin/master
 }
 
 void OpenGLSys::Disable2D()
@@ -139,4 +141,16 @@ void OpenGLSys::Render()
 		glVertex3f( 1.0f,-1.0f, 1.0f);
 		glVertex3f( 1.0f,-1.0f,-1.0f);
 	glEnd();
+
+	Frames++;
+	{
+		GLint t = SDL_GetTicks();
+		if (t - T0 >= 5000) {
+			GLfloat seconds = (t - T0) / 1000.0;
+			GLfloat fps = Frames / seconds;
+			printf("%d frames in %g seconds = %g FPS\n", Frames, seconds, fps);
+			T0 = t;
+			Frames = 0;
+		}
+	}
 }

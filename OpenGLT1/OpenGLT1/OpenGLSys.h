@@ -13,7 +13,10 @@ public:
 	bool Init();
 	bool Shutdown();
 
-	void SetProjection(int width, int height);
+	bool SetProjection(int width, int height);
 	void Update(float dt);
 	void Render();
+
+	void Enable2D();
+	void Disable2D();
 };
