@@ -68,7 +68,7 @@ void OpenGLSys::Disable2D()
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
 }
-void OpenGLSys::Update(float dt)
+void OpenGLSys::Update(double dt)
 {
 	m_rotation += dt * 50;
 }
