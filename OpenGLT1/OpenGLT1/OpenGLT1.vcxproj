@@ -95,11 +95,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGLSys.cpp" />
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StateEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="IntroState.h" />
     <ClInclude Include="OpenGLSys.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="StateEngine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,6 @@
 #include "glfw.h"
 #include "OpenGLSys.h"
+#include "Player.h"
 
 OpenGLSys::OpenGLSys(){}
 
