@@ -11,6 +11,11 @@ void StateEngine::Init(const char* title, int width, int height, int wndFlag)
 	glfwSetWindowTitle(title);
 
 	isRunning = true;
+	
+	m_glRender = new OpenGLSys;
+	// Every state is an OpenGL window so it makes sense to init the render space
+	m_glRender->Init();
+	m_glRender->SetProjection(width, height); // And then set the projection
 
 	printf("Engine Initialized\n");
 }
@@ -26,6 +31,7 @@ void StateEngine::Destroy()
 
 	printf("Engine cleaned up\n");
 
+	delete m_glRender;
 	glfwTerminate();
 }
 

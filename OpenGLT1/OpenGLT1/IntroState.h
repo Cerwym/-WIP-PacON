@@ -26,6 +26,7 @@ protected:
 
 private:
 	static IntroState m_IntroState;
+	float m_rotation;
 };
 
 #endif

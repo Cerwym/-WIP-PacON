@@ -14,8 +14,6 @@ public:
 	bool Shutdown();
 
 	bool SetProjection(int width, int height);
-	void Update(double dt);
-	void Render();
 
 	void Enable2D();
 	void Disable2D();

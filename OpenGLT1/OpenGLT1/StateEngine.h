@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "glfw.h"
+#include "OpenGLSys.h"
+
 class GameState;
 
 class StateEngine
@@ -23,6 +25,10 @@ public:
 	void SetActive(int pRunning){ isRunning = pRunning;}
 	void Quit() {isRunning = false;}
 
+	OpenGLSys *m_glRender;
+
+protected:
+		
 private:
 	// The states on the stack
 	std::vector<GameState*> states;
