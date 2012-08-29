@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\</OutDir>
-    <IntDir>$(SolutionDir)\obj\$(ConfigurationName)</IntDir>
+    <IntDir>$(SolutionDir)\obj\$(ConfigurationName)\bin\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -95,16 +95,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="glfont.cc" />
     <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="OpenGLSys.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StateEngine.cpp" />
+    <ClCompile Include="texTGA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="glfont.h" />
     <ClInclude Include="IntroState.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="OpenGLSys.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="StateEngine.h" />
+    <ClInclude Include="texTGA.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

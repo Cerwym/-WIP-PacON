@@ -31,6 +31,12 @@
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{a44baa37-c77d-45f1-be8a-430a02526fe5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\File Loaders">
+      <UniqueIdentifier>{f57bdcca-86fe-4203-a756-80292c86c450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\File Loaders">
+      <UniqueIdentifier>{0b8fbfc1-658f-4c9e-a303-ba86e00257cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +51,18 @@
     <ClCompile Include="IntroState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="glfont.cc">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="texTGA.cpp">
+      <Filter>Source Files\File Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLSys.h">
@@ -58,6 +76,18 @@
     </ClInclude>
     <ClInclude Include="IntroState.h">
       <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="glfont.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="texTGA.h">
+      <Filter>Header Files\File Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

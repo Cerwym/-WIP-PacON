@@ -2,6 +2,8 @@
 #define _INTROSTATE_H
 
 #include "GameState.h"
+#include "glfont.h"
+#include "Sprite.h"
 
 class IntroState : public GameState
 {
@@ -27,6 +29,13 @@ protected:
 private:
 	static IntroState m_IntroState;
 	float m_rotation;
+	// Font stuff
+	GLFont font;
+	unsigned int tex;
+
+	// Sprite Stuff
+	Sprite introSprite;
+	GLuint IntroBGTex;
 };
 
 #endif

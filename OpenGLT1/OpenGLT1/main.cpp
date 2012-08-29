@@ -2,21 +2,15 @@
 #include "StateEngine.h"
 #include "IntroState.h"
 
-// Ugly stuff
-long wWidth = 800;
-long wHeight = 600;
-
-double dt, lastTime = 0;
+StateEngine engine;
 
 void shutDown()
 {
-
+	engine.Destroy();
 }
 
 int main(void)
 {
-	StateEngine engine;
-
 	// Init the manager
 	engine.Init("Game");
 	// Load the intro state
