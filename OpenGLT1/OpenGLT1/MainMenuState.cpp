@@ -38,7 +38,7 @@ void MainMenuState::HandleEvent(StateEngine* state)
 
 void MainMenuState::Update(StateEngine* state, double dt)
 {
-	m_rotation -= dt * 50;
+	m_rotation += dt * 50;
 }
 
 void MainMenuState::Draw(StateEngine* state)

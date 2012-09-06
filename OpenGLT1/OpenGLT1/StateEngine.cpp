@@ -80,7 +80,7 @@ void StateEngine::HandleEvent()
 void StateEngine::Update()
 {
 	m_LastTime = glfwGetTime();
-	states.back()->Update(this, m_CurrTime - m_LastTime);
+	states.back()->Update(this, m_LastTime - m_CurrTime);
 	m_LastTime = m_CurrTime;
 }
 
