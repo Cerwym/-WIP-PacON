@@ -10,6 +10,7 @@ MainMenuState MainMenuState::m_MainMState;
 void MainMenuState::Init()
 {
 	glfwSetWindowTitle("Main Menu");
+	m_MenuValue = 1;
 	printf("MainMenuState initialized\n");
 }
 
@@ -33,6 +34,17 @@ void MainMenuState::HandleEvent(StateEngine* state)
 	if (glfwGetKey(GLFW_KEY_ESC))
 	{
 		glfwTerminate();
+	}
+	
+	if (glfwGetKey(GLFW_KEY_UP))
+	{
+		m_MenuValue -=1;
+		if (m_MenuValue = 0){m_MenuValue = 3;}
+	}
+	if(glfwGetKey(GLFW_KEY_DOWN))
+	{
+		m_MenuValue +=1;
+		if(m_MenuValue = 4){m_MenuValue = 1;}
 	}
 }
 

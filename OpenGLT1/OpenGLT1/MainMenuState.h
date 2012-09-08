@@ -27,6 +27,7 @@ protected:
 private:
 	static MainMenuState m_MainMState;
 	float m_rotation;
+	int m_MenuValue;
 };
 
 #endif
