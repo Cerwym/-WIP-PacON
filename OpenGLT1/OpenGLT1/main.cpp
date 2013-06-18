@@ -1,29 +1,18 @@
-#include "glfw.h"
-#include "StateEngine.h"
-#include "IntroState.h"
+//
+//  main.cpp
+//  OpenGLT1
+//
+//  Created by Peter Lockett on 18/06/2013.
+//  Copyright (c) 2013 Peter Lockett. All rights reserved.
+//
 
-StateEngine engine;
+#include <iostream>
 
-void shutDown()
+int main(int argc, const char * argv[])
 {
-	engine.Destroy();
+
+    // insert code here...
+    std::cout << "Hello, World!\n";
+    return 0;
 }
 
-int main(void)
-{
-	// Init the manager
-	engine.Init("Game");
-	// Load the intro state
-	engine.ChangeState(IntroState::Instance());
-
-	while (engine.Running())
-	{
-		engine.HandleEvent();
-		engine.Draw();
-		engine.Update();
-		engine.SetActive(glfwGetWindowParam(GLFW_OPENED)); // if the window is closed, active is false, else true.
-	}
-
-	shutDown();
-	return 0; // Won't be reached
-}
