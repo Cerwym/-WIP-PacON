@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A42EC6F1770A6FB0089435C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A42EC6E1770A6FB0089435C /* OpenGL.framework */; };
+		1A42EC711770A77A0089435C /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A42EC701770A77A0089435C /* libglfw.dylib */; };
 		1ACFA60117709A320099FE65 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA60017709A320099FE65 /* main.cpp */; };
 		1ACFA60317709A320099FE65 /* OpenGLT1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1ACFA60217709A320099FE65 /* OpenGLT1.1 */; };
+		1ACFA62717709B950099FE65 /* texTGA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA60A17709B950099FE65 /* texTGA.cpp */; };
+		1ACFA62817709B950099FE65 /* StateEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA60C17709B950099FE65 /* StateEngine.cpp */; };
+		1ACFA62917709B950099FE65 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA60E17709B950099FE65 /* Sprite.cpp */; };
+		1ACFA62A17709B950099FE65 /* OpenGLSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA61217709B950099FE65 /* OpenGLSys.cpp */; };
+		1ACFA62B17709B950099FE65 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA61417709B950099FE65 /* MainMenuState.cpp */; };
+		1ACFA62C17709B950099FE65 /* IntroState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA61617709B950099FE65 /* IntroState.cpp */; };
+		1ACFA62E17709B950099FE65 /* GLFW.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACFA62017709B950099FE65 /* GLFW.lib */; };
+		1ACFA62F17709B950099FE65 /* GLFWDLL.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACFA62117709B950099FE65 /* GLFWDLL.lib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +35,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A42EC6E1770A6FB0089435C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		1A42EC701770A77A0089435C /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../../usr/local/lib/libglfw.dylib; sourceTree = "<group>"; };
 		1ACFA5FD17709A320099FE65 /* OpenGLT1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGLT1; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACFA60017709A320099FE65 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1ACFA60217709A320099FE65 /* OpenGLT1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = OpenGLT1.1; sourceTree = "<group>"; };
+		1ACFA60917709B950099FE65 /* texTGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texTGA.h; sourceTree = "<group>"; };
+		1ACFA60A17709B950099FE65 /* texTGA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texTGA.cpp; sourceTree = "<group>"; };
+		1ACFA60B17709B950099FE65 /* StateEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateEngine.h; sourceTree = "<group>"; };
+		1ACFA60C17709B950099FE65 /* StateEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateEngine.cpp; sourceTree = "<group>"; };
+		1ACFA60D17709B950099FE65 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		1ACFA60E17709B950099FE65 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		1ACFA61117709B950099FE65 /* OpenGLSys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLSys.h; sourceTree = "<group>"; };
+		1ACFA61217709B950099FE65 /* OpenGLSys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenGLSys.cpp; sourceTree = "<group>"; };
+		1ACFA61317709B950099FE65 /* MainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuState.h; sourceTree = "<group>"; };
+		1ACFA61417709B950099FE65 /* MainMenuState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
+		1ACFA61517709B950099FE65 /* IntroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroState.h; sourceTree = "<group>"; };
+		1ACFA61617709B950099FE65 /* IntroState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntroState.cpp; sourceTree = "<group>"; };
+		1ACFA61917709B950099FE65 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		1ACFA61D17709B950099FE65 /* glfw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw.h; sourceTree = "<group>"; };
+		1ACFA61F17709B950099FE65 /* GLFW.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = GLFW.dll; sourceTree = "<group>"; };
+		1ACFA62017709B950099FE65 /* GLFW.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = GLFW.lib; sourceTree = "<group>"; };
+		1ACFA62117709B950099FE65 /* GLFWDLL.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = GLFWDLL.lib; sourceTree = "<group>"; };
+		1ACFA62417709B950099FE65 /* courierFont.glf */ = {isa = PBXFileReference; lastKnownFileType = file; path = courierFont.glf; sourceTree = "<group>"; };
+		1ACFA62617709B950099FE65 /* IntroTex.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroTex.tga; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A42EC6F1770A6FB0089435C /* OpenGL.framework in Frameworks */,
+				1A42EC711770A77A0089435C /* libglfw.dylib in Frameworks */,
+				1ACFA62E17709B950099FE65 /* GLFW.lib in Frameworks */,
+				1ACFA62F17709B950099FE65 /* GLFWDLL.lib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +79,8 @@
 		1ACFA5F417709A320099FE65 = {
 			isa = PBXGroup;
 			children = (
+				1A42EC701770A77A0089435C /* libglfw.dylib */,
+				1A42EC6E1770A6FB0089435C /* OpenGL.framework */,
 				1ACFA5FF17709A320099FE65 /* OpenGLT1 */,
 				1ACFA5FE17709A320099FE65 /* Products */,
 			);
@@ -60,10 +97,85 @@
 		1ACFA5FF17709A320099FE65 /* OpenGLT1 */ = {
 			isa = PBXGroup;
 			children = (
+				1ACFA60917709B950099FE65 /* texTGA.h */,
+				1ACFA60A17709B950099FE65 /* texTGA.cpp */,
+				1ACFA60B17709B950099FE65 /* StateEngine.h */,
+				1ACFA60C17709B950099FE65 /* StateEngine.cpp */,
+				1ACFA60D17709B950099FE65 /* Sprite.h */,
+				1ACFA60E17709B950099FE65 /* Sprite.cpp */,
+				1ACFA61117709B950099FE65 /* OpenGLSys.h */,
+				1ACFA61217709B950099FE65 /* OpenGLSys.cpp */,
+				1ACFA61317709B950099FE65 /* MainMenuState.h */,
+				1ACFA61417709B950099FE65 /* MainMenuState.cpp */,
+				1ACFA61517709B950099FE65 /* IntroState.h */,
+				1ACFA61617709B950099FE65 /* IntroState.cpp */,
+				1ACFA61917709B950099FE65 /* GameState.h */,
+				1ACFA61A17709B950099FE65 /* dependencies */,
+				1ACFA62217709B950099FE65 /* Data */,
 				1ACFA60017709A320099FE65 /* main.cpp */,
 				1ACFA60217709A320099FE65 /* OpenGLT1.1 */,
 			);
 			path = OpenGLT1;
+			sourceTree = "<group>";
+		};
+		1ACFA61A17709B950099FE65 /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA61B17709B950099FE65 /* GLFW */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		1ACFA61B17709B950099FE65 /* GLFW */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA61C17709B950099FE65 /* include */,
+				1ACFA61E17709B950099FE65 /* lib */,
+			);
+			path = GLFW;
+			sourceTree = "<group>";
+		};
+		1ACFA61C17709B950099FE65 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA61D17709B950099FE65 /* glfw.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		1ACFA61E17709B950099FE65 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA61F17709B950099FE65 /* GLFW.dll */,
+				1ACFA62017709B950099FE65 /* GLFW.lib */,
+				1ACFA62117709B950099FE65 /* GLFWDLL.lib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1ACFA62217709B950099FE65 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA62317709B950099FE65 /* Fonts */,
+				1ACFA62517709B950099FE65 /* Textures */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1ACFA62317709B950099FE65 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA62417709B950099FE65 /* courierFont.glf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1ACFA62517709B950099FE65 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFA62617709B950099FE65 /* IntroTex.tga */,
+			);
+			path = Textures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +230,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACFA60117709A320099FE65 /* main.cpp in Sources */,
+				1ACFA62717709B950099FE65 /* texTGA.cpp in Sources */,
+				1ACFA62817709B950099FE65 /* StateEngine.cpp in Sources */,
+				1ACFA62917709B950099FE65 /* Sprite.cpp in Sources */,
+				1ACFA62A17709B950099FE65 /* OpenGLSys.cpp in Sources */,
+				1ACFA62B17709B950099FE65 /* MainMenuState.cpp in Sources */,
+				1ACFA62C17709B950099FE65 /* IntroState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +271,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -179,21 +297,31 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Release;
 		};
 		1ACFA60717709A320099FE65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OpenGLT1/dependencies/GLFW/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
 		1ACFA60817709A320099FE65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OpenGLT1/dependencies/GLFW/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = "";
 			};
 			name = Release;
 		};
@@ -216,6 +344,7 @@
 				1ACFA60817709A320099FE65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

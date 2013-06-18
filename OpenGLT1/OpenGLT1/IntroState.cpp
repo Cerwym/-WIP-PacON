@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 #include "glfw.h"
 #include "StateEngine.h"
@@ -13,11 +14,15 @@ IntroState IntroState::m_IntroState;
 void IntroState::Init()
 {
 	glfwSetWindowTitle("Intro");
-	font.Create("Data\\Fonts\\courierFont.glf", 0);
 
 	introSprite.Init(800, 600);
-	introSprite.LoadTexture("Data\\Textures\\IntroTex.tga", IntroBGTex);
-
+#ifdef __APPLE__
+    printf("Hi, i'm on OSX\n");
+	introSprite.LoadTexture("/Data/Textures/IntroTex.tga", IntroBGTex);
+#elif _WIN32 || _WIN64
+    introSprite.LoadTexture("Data\\Textures\\IntroTex.tga", IntroBGTex);
+#endif
+    
 	printf("IntroState initialized\n");
 }
 
@@ -39,9 +44,7 @@ void IntroState::Resume()
 void IntroState::HandleEvent(StateEngine* state)
 {
 	if (glfwGetKey(GLFW_KEY_ENTER))
-	{
 		state->ChangeState(MainMenuState::Instance());
-	}
 }
 
 void IntroState::Update(StateEngine* state, double dt)

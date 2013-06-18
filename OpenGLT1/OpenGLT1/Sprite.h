@@ -6,8 +6,8 @@
 class Sprite
 {
 public:
-	Sprite::Sprite();
-	Sprite::~Sprite();
+	Sprite();
+	~Sprite();
 
 	void Init(GLdouble width, GLdouble height);
 	void LoadTexture(char *path, GLuint &TexID);
