@@ -22,7 +22,7 @@ bool LoadTGA( char *fname)
 	if(fTGA == NULL)											// If it didn't open....
 	{
 		//possibly do something other than a messagebox here.
-		fprintf(stderr, "Could not open Texture File");
+		fprintf(stderr, "Could not open Texture File\n");
 		return false;
 	}
 
@@ -46,7 +46,7 @@ bool LoadTGA( char *fname)
 	}
 	else																	// If header matches neither type
 	{
-		fprintf(stderr, "TGA file should by type 2 or type 10");
+		fprintf(stderr, "TGA file should by type 2 or type 10\n");
 		fclose(fTGA);
 		return false;																// Exit function
 	}
@@ -74,7 +74,7 @@ bool LoadUncompressedTGA(char * filename, FILE * fTGA)	// Load an uncompressed T
 
 	if((texture_width <= 0) || (texture_height <= 0) || ((texture_bpp != 24) && (texture_bpp !=32)))	// Make sure all information is valid
 	{
-		fprintf(stderr, "Invalid Texture Information");
+		fprintf(stderr, "Invalid Texture Information\n");
 		if(fTGA != NULL)													// Check if file is still open
 		{
 			fclose(fTGA);													// If so, close it
@@ -93,7 +93,7 @@ bool LoadUncompressedTGA(char * filename, FILE * fTGA)	// Load an uncompressed T
 
 	if(texture_imageData== NULL)											// If no space was allocated
 	{
-		fprintf(stderr, "Could not allocate memory for image");
+		fprintf(stderr, "Could not allocate memory for image\n");
 		fclose(fTGA);														// Close the file
 		return false;														// Return failed
 	}
@@ -157,7 +157,7 @@ bool LoadCompressedTGA( char * filename, FILE * fTGA)		// Load COMPRESSED TGAs
 
 	if(texture_imageData== NULL)											// If it wasnt allocated correctly..
 	{
-		fprintf(stderr, "Could not allocate memory for image");
+		fprintf(stderr, "Could not allocate memory for image\n");
 		fclose(fTGA);														// Close file
 		return false;														// Return failed
 	}

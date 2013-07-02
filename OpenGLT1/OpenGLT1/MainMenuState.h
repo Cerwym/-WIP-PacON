@@ -2,6 +2,7 @@
 #define _MAINMENUSTATE_H
 
 #include "GameState.h"
+#include "Sprite.h"
 
 class MainMenuState: public GameState
 {
@@ -28,6 +29,8 @@ private:
 	static MainMenuState m_MainMState;
 	float m_rotation;
 	int m_MenuValue;
+
+	Sprite heroSprite;
 };
 
 #endif

@@ -19,15 +19,17 @@
 		1ACFA62C17709B950099FE65 /* IntroState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFA61617709B950099FE65 /* IntroState.cpp */; };
 		1ACFA62E17709B950099FE65 /* GLFW.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACFA62017709B950099FE65 /* GLFW.lib */; };
 		1ACFA62F17709B950099FE65 /* GLFWDLL.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACFA62117709B950099FE65 /* GLFWDLL.lib */; };
+		1AD084791783161300E4B422 /* IntroTex.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1ACFA62617709B950099FE65 /* IntroTex.tga */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1ACFA5FB17709A320099FE65 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
+				1AD084791783161300E4B422 /* IntroTex.tga in CopyFiles */,
 				1ACFA60317709A320099FE65 /* OpenGLT1.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -59,6 +61,8 @@
 		1ACFA62117709B950099FE65 /* GLFWDLL.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = GLFWDLL.lib; sourceTree = "<group>"; };
 		1ACFA62417709B950099FE65 /* courierFont.glf */ = {isa = PBXFileReference; lastKnownFileType = file; path = courierFont.glf; sourceTree = "<group>"; };
 		1ACFA62617709B950099FE65 /* IntroTex.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroTex.tga; sourceTree = "<group>"; };
+		1AD0847A1783180600E4B422 /* soldier_2.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = soldier_2.tga; sourceTree = "<group>"; };
+		1AD0847B17831FBD00E4B422 /* defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defs.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		1ACFA5FF17709A320099FE65 /* OpenGLT1 */ = {
 			isa = PBXGroup;
 			children = (
+				1AD0847B17831FBD00E4B422 /* defs.h */,
 				1ACFA60917709B950099FE65 /* texTGA.h */,
 				1ACFA60A17709B950099FE65 /* texTGA.cpp */,
 				1ACFA60B17709B950099FE65 /* StateEngine.h */,
@@ -173,6 +178,7 @@
 		1ACFA62517709B950099FE65 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				1AD0847A1783180600E4B422 /* soldier_2.tga */,
 				1ACFA62617709B950099FE65 /* IntroTex.tga */,
 			);
 			path = Textures;

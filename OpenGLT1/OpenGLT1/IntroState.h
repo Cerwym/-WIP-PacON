@@ -23,17 +23,14 @@ public:
 	}
 
 protected:
-	IntroState(){}
+	IntroState(){} // When called, the state MUST call its own Init() function.
 
 private:
 	static IntroState m_IntroState;
 	float m_rotation;
-	// Font stuff
-	unsigned int tex;
 
 	// Sprite Stuff
 	Sprite introSprite;
-	GLuint IntroBGTex;
 };
 
 #endif

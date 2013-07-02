@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
-
 #include "glfw.h"
 #include "StateEngine.h"
 #include "GameState.h"
@@ -15,12 +13,12 @@ void IntroState::Init()
 {
 	glfwSetWindowTitle("Intro");
 
-	introSprite.Init(800, 600);
+	introSprite.Init(0,0, 800,600);
 #ifdef __APPLE__
     printf("Hi, i'm on OSX\n");
-	introSprite.LoadTexture("/Data/Textures/IntroTex.tga", IntroBGTex);
+	introSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/IntroTex.tga");
 #elif _WIN32 || _WIN64
-    introSprite.LoadTexture("Data\\Textures\\IntroTex.tga", IntroBGTex);
+    introSprite.LoadTexture("Data\\Textures\\IntroTex.tga");
 #endif
     
 	printf("IntroState initialized\n");
