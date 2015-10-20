@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "glfw.h"
 #include "StateEngine.h"
 #include "GameState.h"
@@ -16,6 +15,10 @@ void StateEngine::Init(const char* title, int width, int height, int wndFlag)
 	// Every state is an OpenGL window so it makes sense to init the render space
 	m_glRender->Init();
 	m_glRender->SetProjection(width, height); // And then set the projection
+    
+    // Create the Texture Manager instance
+    texManager = TexManager::GetInstance();
+    texManager->foo();
 
 	printf("Engine Initialized\n");
 }

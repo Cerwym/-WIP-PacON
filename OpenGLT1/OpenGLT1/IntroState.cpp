@@ -19,8 +19,7 @@ void IntroState::Init()
 	introSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/IntroTex.tga");
 #elif _WIN32 || _WIN64
     introSprite.LoadTexture("Data\\Textures\\IntroTex.tga");
-#endif
-    
+#endif 
 	printf("IntroState initialized\n");
 }
 

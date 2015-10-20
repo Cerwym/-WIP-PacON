@@ -50,12 +50,12 @@ bool OpenGLSys::SetProjection(int width, int height)
 	glLoadIdentity();
 
 	// Calculate aspect ratio
-	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 600.0f);
+	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 800.0f);
 
 	glMatrixMode(GL_MODELVIEW); // set modelview matrix
 	glLoadIdentity(); // And reset it
 	
-	m_windowHeight = width;
+	m_windowHeight = height;
 	m_windowWidth = width;
 	return true;
 }

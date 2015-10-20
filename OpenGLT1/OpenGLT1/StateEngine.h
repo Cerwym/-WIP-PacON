@@ -4,6 +4,7 @@
 #include <vector>
 #include "glfw.h"
 #include "OpenGLSys.h"
+#include "TexManager.h"
 
 class GameState;
 
@@ -26,6 +27,7 @@ public:
 	void Quit() {isRunning = false;}
 
 	OpenGLSys *m_glRender;
+    TexManager *texManager;
 
 protected:
 		

@@ -1,6 +1,6 @@
 #include "glfw.h"
 #include "StateEngine.h"
-#include "IntroState.h"
+#include "MainMenuState.h"
 
 StateEngine engine;
 
@@ -12,9 +12,9 @@ void shutDown()
 int main(void)
 {
 	// Init the manager
-	engine.Init("Game");
+	engine.Init("Netman", 448,576);
 	// Load the intro state
-	engine.ChangeState(IntroState::Instance());
+	engine.ChangeState(MainMenuState::Instance());
 
 	while (engine.Running())
 	{

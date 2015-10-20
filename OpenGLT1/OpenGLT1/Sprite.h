@@ -10,9 +10,10 @@ public:
 	void Init(float, float, GLdouble, GLdouble);
 	void LoadTexture(char *path);
 	void Draw();
+    void Update();
+    Vector2 Position;
 
 protected:
-    Vector2 m_Position;
 private:
 	GLuint m_TexID;
 	GLdouble m_sWidth, m_sHeight;

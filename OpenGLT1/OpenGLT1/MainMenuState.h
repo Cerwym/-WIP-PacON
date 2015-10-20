@@ -1,8 +1,15 @@
 #ifndef _MAINMENUSTATE_H
 #define _MAINMENUSTATE_H
 
+#define MAP_X 26
+#define MAP_Y 34
+
 #include "GameState.h"
 #include "Sprite.h"
+
+#include <Vector>
+
+using namespace std;
 
 class MainMenuState: public GameState
 {
@@ -27,10 +34,12 @@ protected:
 
 private:
 	static MainMenuState m_MainMState;
-	float m_rotation;
 	int m_MenuValue;
 
 	Sprite heroSprite;
+    Sprite spriteArray[10];
+
+	Sprite* Level[28][36];
 };
 
 #endif
