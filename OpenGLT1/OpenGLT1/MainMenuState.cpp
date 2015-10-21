@@ -1,77 +1,55 @@
 #include <stdio.h>
+#include <cmath>
 #include <iostream>
 #include "glfw.h"
 #include "StateEngine.h"
 #include "GameState.h"
 #include "MainMenuState.h"
+#include "Windows.h"
 
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
 MainMenuState MainMenuState::m_MainMState;
 
+void DebugOutput(WCHAR* szFormat, ...);
+bool checkPosition(Vector2 pos);
+
 void MainMenuState::Init()
 {
 	glfwSetWindowTitle("Main Menu");
 	m_MenuValue = 1;
 	printf("MainMenuState initialized\n");
-	heroSprite.Init(432, 560, 16, 16);
-    
+	heroSprite.Init(13*16, 17*16, 16, 16);
+
 #ifdef __APPLE__
-    heroSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/soldier_2.tga");
+	heroSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/soldier_2.tga");
 #elif _WIN32 || _WIN64
 	heroSprite.LoadTexture("Data\\Textures\\soldier_2.tga");
 #endif
-    
-	/*
-    //do the array
-    for (int i = 0; i < 10; i ++)
-    {
-        spriteArray[i].Init(16*i, 16 * i, 16, 16);
-#ifdef __APPLE__
-		spriteArray[i].LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/soldier_2.tga");
-#elif _WIN32 || _WIN64
-		spriteArray[i].LoadTexture("Data\\Textures\\soldier_2.tga");
-#endif
-    }
 
-	*/
+	// Initialize the map and collision data
+	m_Map = new Map();
 
-	// Initialize the map
-	for (int x = 0; x < 29; x++)
-	{
-		for (int y = 0; y < 36; y++)
-		{
-			srand(time(NULL));
-			int v = rand() % 3;
-			if (v != 1)
-			{
-				Sprite* tSprite = new Sprite;
-				tSprite->Init(16 * x, 16 * y, 16, 16);
-				tSprite->LoadTexture("Data\\Textures\\pill.tga");
-				Level[x][y] = tSprite;
-			}
-
-			else
-			{
-				Level[x][y] = NULL;
-			}
-		}
-	}
-
-	delete Level[10][10];
-	Level[10][10] = 0;
+	if (m_Map->InitWithFile("Data/Levels/level1.txt"))
+		DebugOutput(L"Level created!\n");
+	else
+		DebugOutput(L"Level Failed!\n");
 }
 
 void MainMenuState::Destroy()
 {
-	for (int x = 0; x < 29; x++)
+	for (int x = 0; x < 28; x++)
 	{
 		for (int y = 0; y < 36; y++)
 		{
-			delete Level[x][y];
+			if (Level[x][y] != NULL)
+				delete Level[x][y];
 		}
 	}
+
+	delete m_Map;
+	m_Map = 0;
 	printf("MainMenuState Destroyed\n");
 }
 
@@ -92,7 +70,7 @@ void MainMenuState::HandleEvent(StateEngine* state)
 
 void MainMenuState::Update(StateEngine* state, double dt)
 {
-	bool isKeyDown = false;
+	Vector2 newPos = heroSprite.Position;
 	if (glfwGetKey(GLFW_KEY_ESC))
 	{
 		glfwTerminate();
@@ -100,26 +78,68 @@ void MainMenuState::Update(StateEngine* state, double dt)
 
 	if (glfwGetKey(GLFW_KEY_UP))
 	{
-		isKeyDown = true;
-		heroSprite.Position.y += 64 * dt;
+		newPos.y += 64 * dt;
 	}
 
-	if ( glfwGetKey(GLFW_KEY_DOWN) && !isKeyDown)
+	if ( glfwGetKey(GLFW_KEY_DOWN))
 	{
-		isKeyDown = true;
-		heroSprite.Position.y -= 64 * dt;
+		newPos.y -= 64 * dt;
 	}
-	if (glfwGetKey(GLFW_KEY_LEFT) && !isKeyDown)
+	if (glfwGetKey(GLFW_KEY_LEFT))
 	{
-		isKeyDown = true;
-		heroSprite.Position.x -= 64 * dt;
+		newPos.x -= 64 * dt;
 	}
 
-	if (glfwGetKey(GLFW_KEY_RIGHT) && !isKeyDown)
+	if (glfwGetKey(GLFW_KEY_RIGHT) )
 	{
-		isKeyDown = true;
-		heroSprite.Position.x += 64 * dt;
+		newPos.x += 64 * dt;
 	}
+
+	if (checkPosition(newPos))
+	{
+		heroSprite.Position = newPos;
+	}
+}
+
+// A Unit should be considered in a cell if its centre point is in .0 - .49 of a given coordinate, or else it has begun to transition into the next.
+// this function (for now) will test the player's position.
+bool MainMenuState::checkPosition(Vector2 pos)
+{
+	// checking an element DOWN doesn't work correctly, should therefore use FLOOR insteaf of ceil.
+	// this would also be the case for LEFT
+	float heroCellX = pos.x / 16;
+	float heroCellY = pos.y / 16;
+	int x; int y;
+
+	// RIGHT
+	if (pos.x > heroSprite.Position.x)
+		x = ceil(heroCellX);
+	else
+		x = floor(heroCellX);
+
+	if (pos.y > heroSprite.Position.y)
+		y = ceil(heroCellY);
+	else
+		y = floor(heroCellY);
+
+	int cellInfo = m_Map->CheckCollision(x, y);
+	if (cellInfo == 0)
+	{
+		return true;
+	}
+	else if (cellInfo == 1)
+	{
+		DebugOutput(L"Ate a pill!\n");
+		// remove it;
+		return true;
+	}
+	else if (cellInfo == 2)
+	{
+		DebugOutput(L"Hit a wall!\n");
+		return false;
+	}
+
+	return false;
 }
 
 void MainMenuState::Draw(StateEngine* state)
@@ -128,15 +148,24 @@ void MainMenuState::Draw(StateEngine* state)
 	glLoadIdentity(); // Reset modelview matrix
 
 	//3D drawing here
+
+	// Enable 2D mode
 	state->m_glRender->Enable2D();
 
-	for (int y = 0; y < 36; y++)
-		for (int x = 0; x < 29; x++)
-			if (Level[x][y] != NULL)
-				Level[x][y]->Draw();
-
+	m_Map->Draw();
 
 	heroSprite.Draw();
 
 	state->m_glRender->Disable2D();
+}
+
+void DebugOutput(WCHAR* szFormat, ...)
+{
+	WCHAR szBuff[1024];
+	va_list arg;
+	va_start(arg, szFormat);
+	_vsnwprintf(szBuff, sizeof(szBuff), szFormat, arg);
+	va_end(arg);
+
+	OutputDebugStringW(szBuff);
 }

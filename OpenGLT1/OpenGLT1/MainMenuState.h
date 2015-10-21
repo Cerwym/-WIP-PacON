@@ -6,6 +6,7 @@
 
 #include "GameState.h"
 #include "Sprite.h"
+#include "Map.h"
 
 #include <Vector>
 
@@ -33,13 +34,17 @@ protected:
 	MainMenuState(){}
 
 private:
+	bool checkPosition(Vector2 pos);
+
 	static MainMenuState m_MainMState;
 	int m_MenuValue;
 
 	Sprite heroSprite;
     Sprite spriteArray[10];
 
+	Map* m_Map;
 	Sprite* Level[28][36];
+	char Collision[28][36];
 };
 
 #endif
