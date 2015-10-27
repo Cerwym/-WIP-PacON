@@ -12,7 +12,6 @@
 
 MainMenuState MainMenuState::m_MainMState;
 
-void DebugOutput(WCHAR* szFormat, ...);
 bool checkPosition(Vector2 pos);
 
 void MainMenuState::Init()
@@ -32,9 +31,9 @@ void MainMenuState::Init()
 	m_Map = new Map();
 
 	if (m_Map->InitWithFile("Data/Levels/level1.txt"))
-		DebugOutput(L"Level created!\n");
+		printf("Level created!\n");
 	else
-		DebugOutput(L"Level Failed!\n");
+		printf("Level Failed!\n");
 }
 
 void MainMenuState::Destroy()
@@ -70,6 +69,10 @@ void MainMenuState::HandleEvent(StateEngine* state)
 
 void MainMenuState::Update(StateEngine* state, double dt)
 {
+
+	// rather thhan move the player a fixed amount per frame, check for input and move the character in that direction
+	// every frame move by velocity, the input will change the velocity of the player.
+
 	Vector2 newPos = heroSprite.Position;
 	if (glfwGetKey(GLFW_KEY_ESC))
 	{
@@ -107,8 +110,8 @@ bool MainMenuState::checkPosition(Vector2 pos)
 {
 	// checking an element DOWN doesn't work correctly, should therefore use FLOOR insteaf of ceil.
 	// this would also be the case for LEFT
-	float heroCellX = pos.x / 16;
-	float heroCellY = pos.y / 16;
+	float heroCellX = (pos.x + 8) / 16;
+	float heroCellY = (pos.y + 8) / 16;
 	int x; int y;
 
 	// RIGHT
@@ -129,13 +132,13 @@ bool MainMenuState::checkPosition(Vector2 pos)
 	}
 	else if (cellInfo == 1)
 	{
-		DebugOutput(L"Ate a pill!\n");
+		printf("Ate a pill!\n");
 		// remove it;
 		return true;
 	}
 	else if (cellInfo == 2)
 	{
-		DebugOutput(L"Hit a wall!\n");
+		printf("Hit a wall!\n");
 		return false;
 	}
 
@@ -157,15 +160,4 @@ void MainMenuState::Draw(StateEngine* state)
 	heroSprite.Draw();
 
 	state->m_glRender->Disable2D();
-}
-
-void DebugOutput(WCHAR* szFormat, ...)
-{
-	WCHAR szBuff[1024];
-	va_list arg;
-	va_start(arg, szFormat);
-	_vsnwprintf(szBuff, sizeof(szBuff), szFormat, arg);
-	va_end(arg);
-
-	OutputDebugStringW(szBuff);
 }

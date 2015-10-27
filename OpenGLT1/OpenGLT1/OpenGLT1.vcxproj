@@ -103,10 +103,12 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="OpenGLSys.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StateEngine.cpp" />
     <ClCompile Include="TexManager.cpp" />
     <ClCompile Include="texTGA.cpp" />
+    <ClCompile Include="W32Console.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -114,10 +116,12 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="OpenGLSys.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StateEngine.h" />
     <ClInclude Include="TexManager.h" />
     <ClInclude Include="texTGA.h" />
+    <ClInclude Include="W32Console.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

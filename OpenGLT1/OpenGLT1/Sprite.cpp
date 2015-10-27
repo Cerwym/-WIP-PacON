@@ -9,8 +9,6 @@ void Sprite::Init(float xPos, float yPos, GLdouble width, GLdouble height)
 	m_sWidth = width /2;
     
     printf("Sprite created @ (%f, %f) and Texture @ %p\n", Position.x, Position.y, &m_TexID);
-    
-    
 }
 
 void Sprite::LoadTexture(char *path)

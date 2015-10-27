@@ -1,6 +1,7 @@
 #include "glfw.h"
 #include "StateEngine.h"
 #include "MainMenuState.h"
+#include "W32Console.h"
 
 StateEngine engine;
 
@@ -11,8 +12,14 @@ void shutDown()
 
 int main(void)
 {
+	// if we are building under windows AND in debug mode, create a console window
+	// change this so it doesn't create in release mode.
+#ifdef _WIN32
+	Debug::W32Console::Create(80, 25);
+#endif
+
 	// Init the manager
-	engine.Init("Netman", 448,576);
+	engine.Init("PacON", 448,576);
 	// Load the intro state
 	engine.ChangeState(MainMenuState::Instance());
 
@@ -25,5 +32,9 @@ int main(void)
 	}
 
 	shutDown();
+
+#ifdef _WIN32
+	Debug::W32Console::Destroy();
+#endif
 	return 0; // Won't be reached
 }

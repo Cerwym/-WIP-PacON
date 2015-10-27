@@ -91,6 +91,9 @@ int Map::CheckCollision(int x, int y)
 {
 	if (m_collisionMap[x][y] == 'p')
 	{
+		// TODO: increase score later;
+		m_collisionMap[x][y] = 'e';
+
 		return 1;
 	}
 	else if (m_collisionMap[x][y] == 'w')
