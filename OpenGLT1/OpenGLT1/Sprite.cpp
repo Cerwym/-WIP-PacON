@@ -2,13 +2,15 @@
 #include "texTGA.h"
 #include "TexManager.h"
 
-void Sprite::Init(float xPos, float yPos, GLdouble width, GLdouble height)
+
+Sprite::Sprite(float xPosition, float yPosition, GLdouble width, GLdouble height)
 {
-    Position.x = xPos; Position.y = yPos;
-	m_sHeight = height /2;
-	m_sWidth = width /2;
-    
-    printf("Sprite created @ (%f, %f) and Texture @ %p\n", Position.x, Position.y, &m_TexID);
+	m_Position.x = xPosition; m_Position.y = yPosition;
+	m_sHeight = height / 2;
+	m_sWidth = width / 2;
+	m_TexID = 0;
+
+	printf("Sprite created @ (%f, %f)\n", m_Position.x, m_Position.y);
 }
 
 void Sprite::LoadTexture(char *path)
@@ -19,10 +21,10 @@ void Sprite::LoadTexture(char *path)
 void Sprite::Draw()
 {
     // Calculate new sprite vertex position
-    x1 = (Position.x - m_sWidth) + m_sWidth;
-    y1 = (Position.y - m_sHeight) + m_sHeight;
-    x2 = (Position.x + m_sWidth) + m_sWidth;
-    y2 = Position.y + m_sHeight + m_sHeight;
+	x1 = (m_Position.x - m_sWidth) + m_sWidth;
+	y1 = (m_Position.y - m_sHeight) + m_sHeight;
+	x2 = (m_Position.x + m_sWidth) + m_sWidth;
+	y2 = (m_Position.y + m_sHeight) + m_sHeight;
     
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, m_TexID);

@@ -13,12 +13,12 @@ void IntroState::Init()
 {
 	glfwSetWindowTitle("Intro");
 
-	introSprite.Init(0,0, 800,600);
+	introSprite = new Sprite(0, 0, 800, 600);
 #ifdef __APPLE__
     printf("Hi, i'm on OSX\n");
-	introSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/IntroTex.tga");
+	introSprite->LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/IntroTex.tga");
 #elif _WIN32 || _WIN64
-    introSprite.LoadTexture("Data\\Textures\\IntroTex.tga");
+    introSprite->LoadTexture("Data\\Textures\\IntroTex.tga");
 #endif 
 	printf("IntroState initialized\n");
 }
@@ -26,6 +26,8 @@ void IntroState::Init()
 void IntroState::Destroy()
 {
 	printf("IntroState Destroyed\n");
+	delete introSprite;
+	introSprite = 0;
 }
 
 void IntroState::Pause()
@@ -55,7 +57,7 @@ void IntroState::Draw(StateEngine* state)
 
 	state->m_glRender->Enable2D();
 
-	introSprite.Draw();
+	introSprite->Draw();
 
 	state->m_glRender->Disable2D();
 }

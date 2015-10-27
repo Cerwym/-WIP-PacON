@@ -6,18 +6,21 @@
 
 class Sprite
 {
-public:
-	void Init(float, float, GLdouble, GLdouble);
-	void LoadTexture(char *path);
-	void Draw();
-    void Update();
-    Vector2 Position;
+	public:
+		Sprite(float xPosition, float yPosition, GLdouble width, GLdouble height);
 
-protected:
-private:
-	GLuint m_TexID;
-	GLdouble m_sWidth, m_sHeight;
-    Vector2 m_TopLeft, m_BottomLeft, m_TopRight, m_BottomRight; // Texture coordinates, and should not be changed directly
-    float x1,x2,y1,y2;
+		void LoadTexture(char *path);
+		void Draw();
+		void Update();
+		Vector2 GetPosition(){ return m_Position; }
+		void SetPosition(Vector2& pos) { m_Position = pos; }
+
+	protected:
+		GLdouble m_sWidth, m_sHeight;
+		GLuint m_TexID;
+		Vector2 m_TopLeft, m_BottomLeft, m_TopRight, m_BottomRight; // Texture coordinates, and should not be changed directly
+		Vector2 m_Position;
+		float x1, x2, y1, y2;
+	private:
 };
 #endif

@@ -6,6 +6,7 @@
 
 #include "GameState.h"
 #include "Sprite.h"
+#include "Player.h"
 #include "Map.h"
 
 #include <Vector>
@@ -39,12 +40,13 @@ private:
 	static MainMenuState m_MainMState;
 	int m_MenuValue;
 
-	Sprite heroSprite;
-    Sprite spriteArray[10];
+	Sprite* heroSprite;
+    Sprite* spriteArray[10];
 
 	Map* m_Map;
 	Sprite* Level[28][36];
 	char Collision[28][36];
+	Player* mPlayer;
 };
 
 #endif

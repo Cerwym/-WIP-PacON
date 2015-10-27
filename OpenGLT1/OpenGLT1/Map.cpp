@@ -52,8 +52,7 @@ bool Map::InitWithFile(const char* file)
 					{
 						m_collisionMap[x][y] = 'w';
 
-						Sprite* tSprite = new Sprite();
-						tSprite->Init(x*16, y*16, 16, 16);
+						Sprite* tSprite = new Sprite(x * 16, y * 16, 16, 16);
 						tSprite->LoadTexture("Data\\Textures\\wall.tga");
 						m_Level.push_back(tSprite);
 						
@@ -68,8 +67,7 @@ bool Map::InitWithFile(const char* file)
 					else if (buff[x] == 'o')
 					{
 						m_collisionMap[x][y] = 'p';
-						Sprite* tSprite = new Sprite();
-						tSprite->Init(x * 16, y * 16, 16, 16);
+						Sprite* tSprite = new Sprite(x * 16, y * 16, 16, 16);
 						tSprite->LoadTexture("Data\\Textures\\pill.tga");
 						m_Level.push_back(tSprite);
 					}

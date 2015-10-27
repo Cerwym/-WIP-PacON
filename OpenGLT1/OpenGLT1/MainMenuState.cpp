@@ -19,13 +19,6 @@ void MainMenuState::Init()
 	glfwSetWindowTitle("Main Menu");
 	m_MenuValue = 1;
 	printf("MainMenuState initialized\n");
-	heroSprite.Init(13*16, 17*16, 16, 16);
-
-#ifdef __APPLE__
-	heroSprite.LoadTexture("/Users/peterlockett/Dropbox/Projects/2DOpGL/OpenGLT1/OpenGLT1/Data/Textures/soldier_2.tga");
-#elif _WIN32 || _WIN64
-	heroSprite.LoadTexture("Data\\Textures\\soldier_2.tga");
-#endif
 
 	// Initialize the map and collision data
 	m_Map = new Map();
@@ -34,6 +27,9 @@ void MainMenuState::Init()
 		printf("Level created!\n");
 	else
 		printf("Level Failed!\n");
+
+	mPlayer = new Player(13 * 16, 17 * 16, 16, 16);
+	mPlayer->LoadTexture("Data\\Textures\\soldier_2.tga");
 }
 
 void MainMenuState::Destroy()
@@ -73,7 +69,7 @@ void MainMenuState::Update(StateEngine* state, double dt)
 	// rather thhan move the player a fixed amount per frame, check for input and move the character in that direction
 	// every frame move by velocity, the input will change the velocity of the player.
 
-	Vector2 newPos = heroSprite.Position;
+	Vector2 newPos = mPlayer->GetPosition();
 	if (glfwGetKey(GLFW_KEY_ESC))
 	{
 		glfwTerminate();
@@ -100,7 +96,7 @@ void MainMenuState::Update(StateEngine* state, double dt)
 
 	if (checkPosition(newPos))
 	{
-		heroSprite.Position = newPos;
+		mPlayer->SetPosition(newPos);
 	}
 }
 
@@ -115,12 +111,12 @@ bool MainMenuState::checkPosition(Vector2 pos)
 	int x; int y;
 
 	// RIGHT
-	if (pos.x > heroSprite.Position.x)
+	if (pos.x > mPlayer->GetPosition().x)
 		x = ceil(heroCellX);
 	else
 		x = floor(heroCellX);
 
-	if (pos.y > heroSprite.Position.y)
+	if (pos.y > mPlayer->GetPosition().y)
 		y = ceil(heroCellY);
 	else
 		y = floor(heroCellY);
@@ -157,7 +153,7 @@ void MainMenuState::Draw(StateEngine* state)
 
 	m_Map->Draw();
 
-	heroSprite.Draw();
+	mPlayer->Draw();
 
 	state->m_glRender->Disable2D();
 }

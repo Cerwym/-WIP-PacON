@@ -30,7 +30,7 @@ private:
 	float m_rotation;
 
 	// Sprite Stuff
-	Sprite introSprite;
+	Sprite* introSprite;
 };
 
 #endif
