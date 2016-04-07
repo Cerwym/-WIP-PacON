@@ -1,4 +1,3 @@
-#include "glfw.h"
 #include "StateEngine.h"
 #include "MainMenuState.h"
 #include "W32Console.h"
@@ -25,10 +24,10 @@ int main(void)
 
 	while (engine.Running())
 	{
+		engine.PollWindowEvent(); // if the window is closed, active is false, else true.
 		engine.HandleEvent();
 		engine.Draw();
 		engine.Update();
-		engine.SetActive(glfwGetWindowParam(GLFW_OPENED)); // if the window is closed, active is false, else true.
 	}
 
 	shutDown();

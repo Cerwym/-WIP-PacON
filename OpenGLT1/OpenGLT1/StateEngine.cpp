@@ -1,16 +1,18 @@
 #include <stdio.h>
-#include "glfw.h"
+#include <glfw3.h>
 #include "StateEngine.h"
 #include "GameState.h"
 
-void StateEngine::Init(const char* title, int width, int height, int wndFlag)
+void StateEngine::Init(const char* title, int width, int height)
 {
+	//ToDo: Initialization safety
 	glfwInit();
-	glfwOpenWindow(width, height, 5, 6, 5, 8, 24, 0, wndFlag);
-	glfwSetWindowTitle(title);
-
-	isRunning = true;
 	
+	// Create a windowed mode window and its OpenGL context.
+	m_Window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+
+	glfwMakeContextCurrent(m_Window);
+
 	m_glRender = new OpenGLSys;
 	// Every state is an OpenGL window so it makes sense to init the render space
 	m_glRender->Init();
@@ -18,7 +20,8 @@ void StateEngine::Init(const char* title, int width, int height, int wndFlag)
     
     // Create the Texture Manager instance
     texManager = TexManager::GetInstance();
-    texManager->foo();
+
+	isRunning = true;
 
 	printf("Engine Initialized\n");
 }
@@ -91,5 +94,11 @@ void StateEngine::Draw()
 {
 	m_CurrTime = glfwGetTime();
 	states.back()->Draw(this);
-	glfwSwapBuffers();
+	glfwSwapBuffers(m_Window);
+}
+
+void StateEngine::PollWindowEvent()
+{
+	isRunning = !glfwWindowShouldClose(m_Window);
+	glfwPollEvents();
 }

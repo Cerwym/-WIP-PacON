@@ -1,4 +1,4 @@
-#include "glfw.h"
+#include <glfw3.h>
 #include "OpenGLSys.h"
 
 GLfloat specref[] =	{1.0f, 1.0f, 1.0f, 1.0f};
@@ -50,7 +50,7 @@ bool OpenGLSys::SetProjection(int width, int height)
 	glLoadIdentity();
 
 	// Calculate aspect ratio
-	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 800.0f);
+//	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 1.0f, 800.0f);
 
 	glMatrixMode(GL_MODELVIEW); // set modelview matrix
 	glLoadIdentity(); // And reset it

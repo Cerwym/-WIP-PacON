@@ -10,7 +10,7 @@
 #define OpenGLT1_TexManager_h
 
 #include <map>
-#include "glfw.h"
+#include <glfw3.h>
 
 class TexManager
 {

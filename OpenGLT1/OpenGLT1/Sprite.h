@@ -1,7 +1,7 @@
 #ifndef _SPRITE_H
 #define _SPRITE_H
 
-#include "glfw.h"
+#include <glfw3.h>
 #include "defs.h"
 
 class Sprite

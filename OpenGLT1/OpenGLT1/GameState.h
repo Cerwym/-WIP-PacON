@@ -24,6 +24,8 @@ public:
 
 protected:
 	GameState(){}
+
+	GLFWwindow* m_Window;
 };
 
 #endif

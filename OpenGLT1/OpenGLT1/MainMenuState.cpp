@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <cmath>
 #include <iostream>
-#include "glfw.h"
+#include <glfw3.h>
 #include "StateEngine.h"
 #include "GameState.h"
 #include "MainMenuState.h"
-#include "Windows.h"
-
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
@@ -16,7 +14,6 @@ bool checkPosition(Vector2 pos);
 
 void MainMenuState::Init()
 {
-	glfwSetWindowTitle("Main Menu");
 	m_MenuValue = 1;
 	printf("MainMenuState initialized\n");
 
@@ -65,31 +62,30 @@ void MainMenuState::HandleEvent(StateEngine* state)
 
 void MainMenuState::Update(StateEngine* state, double dt)
 {
-
-	// rather thhan move the player a fixed amount per frame, check for input and move the character in that direction
+	// rather than move the player a fixed amount per frame, check for input and move the character in that direction
 	// every frame move by velocity, the input will change the velocity of the player.
 
 	Vector2 newPos = mPlayer->GetPosition();
-	if (glfwGetKey(GLFW_KEY_ESC))
+	if (glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_ESCAPE))
 	{
 		glfwTerminate();
 	}
 
-	if (glfwGetKey(GLFW_KEY_UP))
+	if (glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_UP))
 	{
 		newPos.y += 64 * dt;
 	}
 
-	if ( glfwGetKey(GLFW_KEY_DOWN))
+	if ( glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_DOWN))
 	{
 		newPos.y -= 64 * dt;
 	}
-	if (glfwGetKey(GLFW_KEY_LEFT))
+	if (glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_LEFT))
 	{
 		newPos.x -= 64 * dt;
 	}
 
-	if (glfwGetKey(GLFW_KEY_RIGHT) )
+	if (glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_RIGHT) )
 	{
 		newPos.x += 64 * dt;
 	}

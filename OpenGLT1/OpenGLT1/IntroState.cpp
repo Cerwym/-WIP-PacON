@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "glfw.h"
+#include <glfw3.h>
 #include "StateEngine.h"
 #include "GameState.h"
 #include "IntroState.h"
@@ -11,8 +11,6 @@ IntroState IntroState::m_IntroState;
 
 void IntroState::Init()
 {
-	glfwSetWindowTitle("Intro");
-
 	introSprite = new Sprite(0, 0, 800, 600);
 #ifdef __APPLE__
     printf("Hi, i'm on OSX\n");
@@ -42,7 +40,7 @@ void IntroState::Resume()
 
 void IntroState::HandleEvent(StateEngine* state)
 {
-	if (glfwGetKey(GLFW_KEY_ENTER))
+	if (glfwGetKey(state->GetGLFWWindow(), GLFW_KEY_ENTER))
 		state->ChangeState(MainMenuState::Instance());
 }
 

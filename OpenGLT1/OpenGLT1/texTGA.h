@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "glfw.h"
+#include <glfw3.h>
 
 typedef struct
 {
